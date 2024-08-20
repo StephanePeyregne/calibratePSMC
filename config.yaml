@@ -1,0 +1,9 @@
+individual: "Denisova3"
+data: "Denisova3.psmcfa"
+simulation_code: "uncorrected_scrm_codes/{individual}_scrm.txt"
+genome_length: "genome_length.txt"
+filters: "filters/chr21_mask.bed.gz filters/chr22_mask.bed.gz"
+scripts: 
+  scrm2psmc: "scrm2psmc.py"
+  psmc: "PSMC/psmc"
+
