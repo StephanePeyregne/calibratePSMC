@@ -69,7 +69,7 @@ NOTE: For ancient human genomes, standard filters include a 35-mer mappability f
 ```
    PSMC/psmc -N25 -t15 -r5 -p "4+25*2+4+6" -o Denisova3.psmc Denisova3.psmcfa
 ```
-4. **Generate simulation code from the PSMC result""
+4. **Generate simulation code from the PSMC result**
 ```
    PSMC/utils/psmc2history.pl Denisova3.psmc | PSMC/utils/history2ms.pl -L 2881033286 -u 1.45e-08 -g 29 | sed 's/msHOT-lite/scrm/g' | sed 's/-l//g' > Denisova3_scrm.txt
 ```
