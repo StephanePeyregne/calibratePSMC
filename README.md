@@ -22,9 +22,11 @@ Example input files are provided in this repository (for chromosomes 21 and 22 f
 
 
 ## 2. Install scrm (and autoconf)
+
 Before installing scrm, you need to install autoconf.
 
 **Install autoconf**
+
 On Debian/Ubuntu based systems:
 ```
 apt-get install build-essential autoconf autoconf-archive libcppunit-dev
@@ -50,6 +52,7 @@ make
 ## 3. Prepare input data
 
 1. **Convert VCF Files to PSMC Format**
+
 For each chromosome, convert VCF files to PSMC format and compress the output:
 ```
    for i in `seq 1 22` ; do python3 scrm2psmc.py -v -g genome_length.txt -m <(zcat filters/chr${i}_mask.bed.gz) <(zcat chr${i}.vcf.gz) | gzip > chr${i}.psmcfa.gz & done
@@ -83,6 +86,7 @@ NOTE: Due to uncertainties in recent colaescent rates, the Ne for the first peri
 ## 4. Run simulations to calibrate the PSMC results according to the fragmentation of the filtered genome
 
 1. **Edit the Configuration File**
+
 Update config.yaml with your sample name, data paths, and other parameters as shown in the provided example.
 
 2. **Execute the Snakemake pipeline**
@@ -101,6 +105,7 @@ Change the number of cores indicated in this command (8 cores in this example) a
 By default, the pipeline explores correction factors ranging from  1.0 to 2.0 in steps of 0.05. Adjust as you see fit. 
 
 Example output where the columns correspond to the name of the sample, the correction factor for theta (scaled mutation rate), the correction factor for rho (scaled recombination rate) and the log-likelihood, in this order.
+
    Denisova3	1.4	1.6	-1413337.940279
 
 2. **Generate the calibrated demographic history using the best correction factors (e.g., theta = 1.4 and rho = 1.6):**
